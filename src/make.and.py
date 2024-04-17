@@ -7,12 +7,13 @@ module and_p{p}_h{n} ( input [5:0] a, output y);
 `ifdef COCOTB_SIM
 assign #1 y = &a;
 `else
-initial $fatal("and_p{p}_h{n} physical design not implemented");
+initial $fatal(1);
 `endif
 endmodule
 """
   print(a)
 
+print('`timescale 1ns / 1ps')
 
 for pp in [ "a", "b", "c", "d" ]:
   for nn in ["1", "5", "20" ]:

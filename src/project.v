@@ -12,7 +12,7 @@ module invh #(parameter H=1) ( input a, output y);
 `ifdef COCOTB_SIM
 assign #1 y = ~a;
 `else
-initial $fatal("invh physical design not implemented");
+initial $fatal(1);
 `endif
 endmodule
 
