@@ -1,4 +1,5 @@
-`default_nettype none `timescale 1ns / 1ps
+`default_nettype none 
+`timescale 1ns / 1ps
 
 /* This testbench just instantiates the module and makes some convenient wires
    that can be driven / tested by the cocotb test.py.
@@ -23,7 +24,7 @@ module tb ();
   wire [7:0] uio_oe;
 
   // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  tt_um_ericsmi_weste_problem_4_11 tt_um_ericsmi_weste_problem_4_11 (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
@@ -31,14 +32,20 @@ module tb ();
       .VGND(1'b0),
 `endif
 
-      .ui_in  (ui_in),    // Dedicated inputs
-      .uo_out (uo_out),   // Dedicated outputs
-      .uio_in (uio_in),   // IOs: Input path
-      .uio_out(uio_out),  // IOs: Output path
-      .uio_oe (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
-      .ena    (ena),      // enable - goes high when design is selected
-      .clk    (clk),      // clock
-      .rst_n  (rst_n)     // not reset
-  );
+      .ena(ena),
+      .clk(clk),
+      .rst_n(rst_n),
+      .ui_in(ui_in[7:0]),
+      .uo_out(uo_out[7:0]),
+      .uio_in(uio_in[7:0]),
+      .uio_out(),
+      .uio_oe()
+    );
+
+  initial begin
+    rst_n = 0;
+    ui_in[7:0] = 8'd0;
+    uio_in[7:0] = 8'd0;
+  end
 
 endmodule
