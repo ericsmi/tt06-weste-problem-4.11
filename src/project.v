@@ -35,7 +35,7 @@ module tt_um_ericsmi_weste_problem_4_11 (
   
 
   wire ntest;
-  wire count;
+  wire bdiv;
 
   wire [11:0] y;
   wire [3:0] b;
@@ -45,10 +45,10 @@ module tt_um_ericsmi_weste_problem_4_11 (
 
   assign b[3:0] = { |y[11:9], |y[8:6], |y[5:3], |y[2:0]};
 
-  divider divider(.rst_n(rst_n), .clk(|b), .y(count));
+  divider divider(.rst_n(rst_n), .clk(|b), .y(bdiv));
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out[7:0] = {1'b1, ntest, &a, b[3:0], count};
+  assign uo_out[7:0] = {1'b1, bdiv, ntest, &(a[5:0]), b[3:0]};
   assign uio_out = 0;
   assign uio_oe  = 0;
 
@@ -81,7 +81,7 @@ module tt_um_ericsmi_weste_problem_4_11 (
     .en(sel[1]&h[1]), 
     .a(a[7:0]),
     .ntest(ntest),
-    .y(y[3])
+    .y(y[4])
     );  
   ring_osc_part_b_h20 ring_osc_part_b_h20 ( 
     .en(sel[1]&h[2]), 

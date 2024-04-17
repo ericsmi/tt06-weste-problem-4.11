@@ -10,16 +10,20 @@ module ring_osc_part_{p}_h{n}(
   output y
 );
 
-  wire lb,enbuf;
+  wire lb;
   wire [2:0] x;
   wire [2:0] z;
 
-  assign lb = ntest ? a[5] : z[2];
-  assign y = ~z[2];
+  wire xbuf;
 
-  assign enbuf = en & a[0];
+  assign xbuf = a[7:6] == 2'b11 ? x[2] :
+                          2'b01 ? x[1] :
+                                  x[0] ;
 
-  and_p{p}_h{n} and_p{p}_h{n}_0( .a({{y, a[4:1], enbuf}}), .y(x[0]));
+  assign lb = ntest ? z[2] : a[5];
+  assign y = en & (ntest ? z[2] : xbuf);
+
+  and_p{p}_h{n} and_p{p}_h{n}_0( .a({{lb, a[4:1], a[0]}}), .y(x[0]));
   invh #(.H({n})) i0(.a(x[0]), .y(z[0]));
 
   and_p{p}_h{n} and_p{p}_h{n}_1( .a({{a[6],a[4:1],z[0]}}), .y(x[1]));
