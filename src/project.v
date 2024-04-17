@@ -35,7 +35,7 @@ module tt_um_ericsmi_weste_problem_4_11 (
   
 
   wire ntest;
-  wire bdiv;
+  wire [1:0] bdiv;
 
   wire [11:0] y;
   wire [3:0] b;
@@ -45,10 +45,10 @@ module tt_um_ericsmi_weste_problem_4_11 (
 
   assign b[3:0] = { |y[11:9], |y[8:6], |y[5:3], |y[2:0]};
 
-  divider divider(.rst_n(rst_n), .clk(|b), .y(bdiv));
+  divider divider(.rst_n(rst_n), .clk(|b), .y(bdiv[1:0]));
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out[7:0] = {1'b1, bdiv, ntest, &(a[5:0]), b[3:0]};
+  assign uo_out[7:0] = {bdiv[1:0], ntest, &(a[5:0]), b[3:0]};
   assign uio_out = 0;
   assign uio_oe  = 0;
 
@@ -132,17 +132,25 @@ endmodule
 
 ////////////////////////////////////////////////////////////
 
-module divider #(parameter WIDTH=4) ( input rst_n, clk, output y);
+module divider #(parameter WIDTH=4) ( input rst_n, clk, output [1:0] y);
 
   wire [WIDTH-1:0] count;
-  
+  wire overflow;
+
   dff counter [WIDTH-1:0] (
     .rst_n({WIDTH{rst_n}}),
     .d(~count),
     .clk({count[WIDTH-2:0],clk}),
     .q(count));
   
-  assign y = count[WIDTH-1];
+  dff sticky (
+    .rst_n(rst_n),
+    .d(1'b1),
+    .clk(~count[WIDTH-1]),
+    .q(sticky)
+  );
+
+  assign y[1:0] = {sticky,count[WIDTH-1]};
 
 endmodule
 

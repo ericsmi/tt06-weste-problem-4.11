@@ -65,3 +65,16 @@ async def test_project(dut):
   dut._log.info(f'fail_count={fail_count}')
   assert fail_count == 0
 
+  dut.uio_in.value = 0xFF
+  dut._log.info("Test Each Oscillator")
+  for h in [4,2,1]:
+      for sel in [8,4,2,1]:
+            for en in [0xFF,0]:
+              dut.rst_n.value = 0
+              await ClockCycles(dut.clk, 1)
+              dut.rst_n.value = 1
+              dut.ui_in.value = 0x80 | (h<<4) | (en&sel);
+              await ClockCycles(dut.clk, 1)
+              assert (0x80 & dut.uo_out.value) == (en & 0x80)
+            dut._log.info(f'pass oscilator {h} {sel}')
+
