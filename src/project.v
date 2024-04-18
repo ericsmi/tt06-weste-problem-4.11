@@ -8,18 +8,6 @@
 
 ////////////////////////////////////////////////////////////
 
-module invh #(parameter H=1) ( input a, output y); 
-`ifdef COCOTB_SIM
-assign #1 y = ~a;
-`else
-wire [H-1:0] w;
-sky130_fd_sc_hd__inv_1 load_capacitance [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
-assign y=w[0];
-`endif
-endmodule
-
-////////////////////////////////////////////////////////////
-
 module tt_um_ericsmi_weste_problem_4_11 (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
@@ -166,4 +154,16 @@ always @(negedge rst_n or posedge clk)
      r<=0;
   else
      r<=d;
+endmodule
+
+////////////////////////////////////////////////////////////
+
+module invh #(parameter H=1) ( input a, output y); 
+`ifdef COCOTB_SIM
+assign y = ~a;
+`else
+wire [H-1:0] w;
+sky130_fd_sc_hd__inv_1 load_capacitance [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
+assign y=w[0];
+`endif
 endmodule
