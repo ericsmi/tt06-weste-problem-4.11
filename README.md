@@ -40,10 +40,10 @@ D = G * H + P
 
 | Variable | Name | Description |
 | -------- | ------- | ------- |
-| H | Electrical Effort | The amount of output capacitance this gate needs to drive relative to the input capacitance of an inverter |
+| H | Electrical Effort | The amount of output capacitance this gate needs to drive relative to the input capacitance of an inverter. |
 | G | Logical Effort | Logical Effort is a rough measure of the gate's complexity. It can be thought of as the amount of input capacitance relative to an inverter with equal drive strength, the amount of drive strength when the input capacitance is the same as an inverter, or the slope of the fanout line. More "complex" gates will have higher logic efforts. |
 | P | Parasitic Delay | Parasitic delay measures the output capacitance of this gate relative to the output capacitance of an inverter of the same strength. More complex gates have more output capacitance. |
-| D | Stage Delay | The delay of this stage relative to the delay of one inverter |
+| D | Stage Delay | The delay of this stage relative to the delay of one inverter. |
 
 The linear delay model has several possible issues (Weste & Harris covers this), but critically, it ignores wires. It's known to work well enough for 0.25u processes and above, where wire loading is less significant relative to the delay and loading of the transistors themselves. We'll see how well it works at 130nm for Sky130A in the TinyTapeout/OpenLane flow, where placement density is not particularly high. 
 
