@@ -14,13 +14,17 @@ async def test_project(dut):
   cocotb.start_soon(clock.start())
 
   # Reset
-  dut._log.info("Reset")
+  
   dut.ena.value = 1
   dut.ui_in.value = 0
   dut.uio_in.value = 0
+  dut.rst_n.value = 1
+  dut._log.info("Reset Asserted")
+  await ClockCycles(dut.clk, 1)
   dut.rst_n.value = 0
   await ClockCycles(dut.clk, 1)
   dut.rst_n.value = 1
+  dut._log.info("Reset Cleared")
 
   # Set the input values, wait one clock cycle, and check the output
   # Because it's an amd gate the outputs should all be zero

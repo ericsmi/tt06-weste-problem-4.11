@@ -140,7 +140,7 @@ module divider #(parameter WIDTH=4) ( input rst_n, clk, output [1:0] y);
     .q(overflow)
   );
 
-  assign y[1:0] = {overflow,count[WIDTH-1]};
+  assign y[1:0] = {rst_n&overflow,rst_n&count[WIDTH-1]};
 
 endmodule
 
