@@ -274,10 +274,10 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{808, 870},
-WindowMargins->{{131, Automatic}, {Automatic, 38}},
+WindowMargins->{{Automatic, 196}, {Automatic, -5}},
 FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
 StyleDefinitions->"Default.nb",
-ExpressionUUID->"2fe508c7-f7de-4245-90fd-bb2d240baae5"
+ExpressionUUID->"940d0588-2758-4d41-88c5-c2551bab5797"
 ]
 (* End of Notebook Content *)
 

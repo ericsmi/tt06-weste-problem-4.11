@@ -12,7 +12,9 @@ module invh #(parameter H=1) ( input a, output y);
 `ifdef COCOTB_SIM
 assign #1 y = ~a;
 `else
-initial $fatal(1);
+wire [H-1:0] w;
+sky130_fd_sc_hd__inv_1 i [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
+assign y=w[0];
 `endif
 endmodule
 
