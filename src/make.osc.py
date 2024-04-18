@@ -27,10 +27,10 @@ module ring_osc_part_{p}_h{n}(
   invh #(.H({n})) i0(.a(x[0]), .y(z[0]));
 
   and_p{p}_h{n} and_p{p}_h{n}_1( .a({{a[6],a[4:1],z[0]}}), .y(x[1]));
-  invh #(.H(20)) i1(.a(x[1]), .y(z[1]));
+  invh #(.H({n})) i1(.a(x[1]), .y(z[1]));
 
   and_p{p}_h{n} and_p{p}_h{n}_2( .a({{a[7],a[4:1],z[1]}}), .y(x[2]));
-  invh #(.H(20)) i2(.a(x[2]), .y(z[2]));
+  invh #(.H({n})) i2(.a(x[2]), .y(z[2]));
 
 endmodule
 """
