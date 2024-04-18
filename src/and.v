@@ -73,7 +73,7 @@ sky130_fd_sc_hd__nand3_1 _0_(
     .Y(x[1]));
 sky130_fd_sc_hd__nand3_1 _1_(
     .A(a[2]), .B(a[1]), .C(a[0]),
-    .Y(x[1]));
+    .Y(x[0]));
 sky130_fd_sc_hd__nor2_1 _2_(
     .A(x[0]),.B(x[1]),
     .Y(y));
@@ -93,7 +93,7 @@ sky130_fd_sc_hd__nand3_1 _0_(
     .Y(x[1]));
 sky130_fd_sc_hd__nand3_1 _1_(
     .A(a[2]), .B(a[1]), .C(a[0]),
-    .Y(x[1]));
+    .Y(x[0]));
 sky130_fd_sc_hd__nor2_2 _2_(
     .A(x[0]),.B(x[1]),
     .Y(y));
@@ -113,7 +113,7 @@ sky130_fd_sc_hd__nand3_1 _0_(
     .Y(x[1]));
 sky130_fd_sc_hd__nand3_1 _1_(
     .A(a[2]), .B(a[1]), .C(a[0]),
-    .Y(x[1]));
+    .Y(x[0]));
 sky130_fd_sc_hd__nor2_4 _2_(
     .A(x[0]),.B(x[1]),
     .Y(y));
@@ -136,7 +136,7 @@ sky130_fd_sc_hd__nand2_1 _1_(
     .Y(x[1]));
 sky130_fd_sc_hd__nand2_1 _2_(
     .A(a[1]), .B(a[0]),
-    .Y(x[1]));
+    .Y(x[0]));
 sky130_fd_sc_hd__nor3_1 _3_(
     .A(x[0]),.B(x[1]),.C(x[2]),
     .Y(y));
@@ -159,7 +159,7 @@ sky130_fd_sc_hd__nand2_1 _1_(
     .Y(x[1]));
 sky130_fd_sc_hd__nand2_1 _2_(
     .A(a[1]), .B(a[0]),
-    .Y(x[1]));
+    .Y(x[0]));
 sky130_fd_sc_hd__nor3_2 _3_(
     .A(x[0]),.B(x[1]),.C(x[2]),
     .Y(y));
@@ -182,7 +182,7 @@ sky130_fd_sc_hd__nand2_1 _1_(
     .Y(x[1]));
 sky130_fd_sc_hd__nand2_1 _2_(
     .A(a[1]), .B(a[0]),
-    .Y(x[1]));
+    .Y(x[0]));
 sky130_fd_sc_hd__nor3_4 _3_(
     .A(x[0]),.B(x[1]),.C(x[2]),
     .Y(y));
