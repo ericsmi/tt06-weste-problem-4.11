@@ -9,10 +9,10 @@ https://pages.hmc.edu/harris/cmosvlsi/4e/index.html
 
 Consider four designs of a 6-input AND gate shown below. Develop an expression for the delay of each path if the path electrical effort is H.  What design is fastest for H = 1? For H = 5? For H = 20? 
 
-![](../images/and-gate-designs.png)
+![](./images/and-gate-designs.png)
 
 For this problem H is a measure of the amount of capacitance the AND gate
-needs to drive divided by the input capacitance of one inverter.  So H=20 means the output capacitance is the same as 20 inverters.
+needs to drive divided by the input capacitance of the structure.  So H=20 means the output capacitance is the same as 20 inverters.
 
 For an example of when this could occur, consider this AND gate as a row decoder and H is the number of columns. 
 
@@ -26,11 +26,11 @@ For more details see
 
 This is the linear delay model and the basic theory is the delay of a gate can be determined by the equation:
 
-D = H * G + P
+D = G * H + P
 
 | Variable | Name | Description |
 | -------- | ------- | ------- |
-| H | Electrical Effort | The amount of output capacitance this gate needs to drive relative to the input capacitance of an inverter |
+| H | Electrical Effort | The amount of output capacitance this gate needs to drive relative to the input capacitance |
 | G | Logical Effort | This is a rough measure of the complexity of the gate.  One can think of it as the amount of input capacitance relative to an inverter with equal drive strength, or the amount of drive strength when the input capacitance is the same as an inverter, or the slope of the fanout line.  More "complex" gates will have higher logic efforts.  |
 | P | Parasitic Delay | The amount of output capacitance of this gate relative to the output capacitance of an inverter of the same strength.  More complex gates have more output capacitance. |
 | D | Stage Delay | The delay of this stage relative to the delay of one inverter |
@@ -40,19 +40,19 @@ There are a number of possilble issues with the linear delay model (Weste & Harr
 
 ## What I implemented
 
-![](../images/and-gate-designs-h1.png)
-![](../images/and-gate-designs-h5.png)
-![](../images/and-gate-designs-h20.png)
+![](./images/and-gate-designs-h1.png)
+![](./images/and-gate-designs-h5.png)
+![](./images/and-gate-designs-h20.png)
 
 ## How I determined the drive values
 
 The key is to notice when we increase the drive of one cell we increase the load on the previous cell.  This changes the electrical effort of that cell.  So for part D we end up with the following chain
 
-![](../images/and-gate-designs-dx.png)
+![](./images/and-gate-designs-dx.png)
 
 There are equations one can use to optimize this but I just used mathematica because it's faster.   Here is how I solved H=20 for part D.
 
-![](../images/SolveForDrive.png)
+![](./images/SolveForDrive.png)
 
 Then I just used the cell with the nearest drive from the library.   
 
@@ -71,7 +71,7 @@ These are in units of one inverter delay which is about 70pS in Sky130A.
 
 ## What is drive?
 
-This is essentially putting multiple gates in parallel to increase the amount of current the compound gate can output. The drive number tells you how many gates are in paralle. This allows it to drive larger load capacitances with higher dv/dt at the cost of input capacitance, area and power. 
+This is essentially putting multiple gates in parallel to increase the amount of current the newly fashioned compound gate can output. The drive number tells you how many gates are in parallel. This allows it to drive larger load capacitances with higher dv/dt at the cost of input capacitance, area and power. 
 
 It's nicer to use an integrated cell for the parallel gates because the layout engineer can do things to minimize wire loading and output capacitance of the overall structure. 
 
@@ -79,7 +79,7 @@ See the various incarnations of nand2 in Sky130A for an example.
 
 https://diychip.org/sky130/sky130_fd_sc_hd/cells/nand2/
 
-To those with a more analog bend you might think the previous gate is acting like a pre-amplifier, and you're right.  It is exactly the same.  You might also notice the inverter is basically a class B stage, except it inverts.  It is and that's what makes it such a good reference unit when one considers driving loads. 
+To those with a more analog bend you might think the previous gate is acting like a pre-amplifier, and you're right.  It is exactly the same.  You might also notice the inverter is basically a class B stage, except it inverts.  It is and that's what makes it such a good reference when one considers driving loads. 
 
 ## This provides a bit of theory behind the ZtA video
 
@@ -91,7 +91,7 @@ Here we keep the period constraint the same but increase the load.  At the end o
 
 ## Test structure 
 
-![](../images/Arch.png)
+![](./images/Arch.png)
 
 ## Raw Delay Calculations
 ```
