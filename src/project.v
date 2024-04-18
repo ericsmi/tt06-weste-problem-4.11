@@ -149,10 +149,10 @@ module divider #(parameter WIDTH=4) ( input rst_n, clk, output [1:0] y);
     .rst_n(rst_n),
     .d(1'b1),
     .clk(~count[WIDTH-1]),
-    .q(sticky)
+    .q(overflow)
   );
 
-  assign y[1:0] = {sticky,count[WIDTH-1]};
+  assign y[1:0] = {overflow,count[WIDTH-1]};
 
 endmodule
 
