@@ -42,76 +42,76 @@ module tt_um_ericsmi_weste_problem_4_11 (
   assign uio_out = 0;
   assign uio_oe  = 0;
 
-  ring_osc_part_a_h1 ring_osc_part_a_h1 ( 
+  (* keep_hierarchy *) ring_osc_part_a_h1 ring_osc_part_a_h1 ( 
     .en(sel[0]&h[0]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[0])
     );
-  ring_osc_part_a_h5 ring_osc_part_a_h5 ( 
+  (* keep_hierarchy *) ring_osc_part_a_h5 ring_osc_part_a_h5 ( 
     .en(sel[0]&h[1]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[1])
     );  
-  ring_osc_part_a_h20 ring_osc_part_a_h20 ( 
+  (* keep_hierarchy *) ring_osc_part_a_h20 ring_osc_part_a_h20 ( 
     .en(sel[0]&h[2]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[2])
     );
 
-  ring_osc_part_b_h1 ring_osc_part_b_h1 ( 
+  (* keep_hierarchy *) ring_osc_part_b_h1 ring_osc_part_b_h1 ( 
     .en(sel[1]&h[0]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[3])
     );
-  ring_osc_part_b_h5 ring_osc_part_b_h5 ( 
+  (* keep_hierarchy *) ring_osc_part_b_h5 ring_osc_part_b_h5 ( 
     .en(sel[1]&h[1]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[4])
     );  
-  ring_osc_part_b_h20 ring_osc_part_b_h20 ( 
+  (* keep_hierarchy *) ring_osc_part_b_h20 ring_osc_part_b_h20 ( 
     .en(sel[1]&h[2]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[5])
     );
 
-  ring_osc_part_c_h1 ring_osc_part_c_h1 ( 
+  (* keep_hierarchy *) ring_osc_part_c_h1 ring_osc_part_c_h1 ( 
     .en(sel[2]&h[0]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[6])
     );
-  ring_osc_part_c_h5 ring_osc_part_c_h5 ( 
+  (* keep_hierarchy *) ring_osc_part_c_h5 ring_osc_part_c_h5 ( 
     .en(sel[2]&h[1]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[7])
     );  
-  ring_osc_part_c_h20 ring_osc_part_c_h20 ( 
+  (* keep_hierarchy *) ring_osc_part_c_h20 ring_osc_part_c_h20 ( 
     .en(sel[2]&h[2]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[8])
     );
 
-  ring_osc_part_d_h1 ring_osc_part_d_h1 ( 
+  (* keep_hierarchy *) ring_osc_part_d_h1 ring_osc_part_d_h1 ( 
     .en(sel[3]&h[0]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[9])
     );
-  ring_osc_part_d_h5 ring_osc_part_d_h5 ( 
+  (* keep_hierarchy *) ring_osc_part_d_h5 ring_osc_part_d_h5 ( 
     .en(sel[3]&h[1]), 
     .a(a[7:0]),
     .ntest(ntest),
     .y(y[10])
     );  
-  ring_osc_part_d_h20 ring_osc_part_d_h20 ( 
+  (* keep_hierarchy *) ring_osc_part_d_h20 ring_osc_part_d_h20 ( 
     .en(sel[3]&h[2]), 
     .a(a[7:0]),
     .ntest(ntest),
@@ -163,7 +163,7 @@ module invh #(parameter H=1) ( input a, output y);
 assign y = ~a;
 `else
 wire [H-1:0] w;
-sky130_fd_sc_hd__inv_1 load_capacitance [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
+(* keep *) sky130_fd_sc_hd__inv_1 load_capacitance [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
 assign y=w[0];
 `endif
 endmodule
