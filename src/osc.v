@@ -15,9 +15,9 @@ module ring_osc_part_a_h1(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -49,9 +49,9 @@ module ring_osc_part_a_h5(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -83,9 +83,9 @@ module ring_osc_part_a_h20(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -117,9 +117,9 @@ module ring_osc_part_b_h1(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -151,9 +151,9 @@ module ring_osc_part_b_h5(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -185,9 +185,9 @@ module ring_osc_part_b_h20(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -219,9 +219,9 @@ module ring_osc_part_c_h1(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -253,9 +253,9 @@ module ring_osc_part_c_h5(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -287,9 +287,9 @@ module ring_osc_part_c_h20(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -321,9 +321,9 @@ module ring_osc_part_d_h1(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -355,9 +355,9 @@ module ring_osc_part_d_h5(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);
@@ -389,9 +389,9 @@ module ring_osc_part_d_h20(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);

@@ -16,9 +16,9 @@ module ring_osc_part_{p}_h{n}(
 
   wire xbuf;
 
-  assign xbuf = a[7:6] == 2'b11 ? x[2] :
-                          2'b01 ? x[1] :
-                                  x[0] ;
+  assign xbuf = (a[7:6] == 2'b11) ? x[2] :
+                (a[7:6] == 2'b01) ? x[1] :
+                                    x[0] ;
 
   assign lb = ntest ? z[2] : a[5];
   assign y = en & (ntest ? z[2] : xbuf);

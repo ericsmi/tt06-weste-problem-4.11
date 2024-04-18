@@ -76,7 +76,7 @@ async def test_project(dut):
   dut._log.info(f'fail_count={fail_count}')
   assert fail_count == 0
 
-  if 0:
+  if 1:
       dut.uio_in.value = 0xFF
       dut._log.info("Test Each Oscillator")
       for h in [4,2,1]:
