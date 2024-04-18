@@ -1,13 +1,3 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg)
-
-# Tiny Tapeout Verilog Project Template
-
-- [Read the documentation for project](docs/info.md)
-
-## What is Tiny Tapeout?
-
-To learn more and get started, visit https://tinytapeout.com.
-
 ## Project
 
 Measure the delay of the implementations of problem 4.11 in Weste & Harris
