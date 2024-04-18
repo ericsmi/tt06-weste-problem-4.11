@@ -13,7 +13,7 @@ module invh #(parameter H=1) ( input a, output y);
 assign #1 y = ~a;
 `else
 wire [H-1:0] w;
-sky130_fd_sc_hd__inv_1 i [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
+sky130_fd_sc_hd__inv_1 load_capacitance [H-1:0] (.A({H{a}}), .Y(w[H-1:0]));
 assign y=w[0];
 `endif
 endmodule
